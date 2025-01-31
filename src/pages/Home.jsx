@@ -3,18 +3,15 @@ import { Canvas } from "@react-three/fiber"; // Library untuk membuat scene 3D
 import { Suspense, useEffect, useRef, useState } from "react"; // Hook React yang diperlukan
 
 // Import asset dan komponen lokal
-import sakura from "../assets/sakura.mp3"; // File audio background
-import { HomeInfo, Loader, Terem, Experience } from "../components"; // Komponen UI
+ // File audio background
+import { HomeInfo, Loader, } from "../components"; // Komponen UI
 import { soundoff, soundon } from "../assets/icons"; // Icon untuk kontrol audio
 import { Bird, Island, Plane, Sky } from "../models"; // Model 3D
 
 
 
 const Home = () => {
-  // Inisialisasi audio player dengan volume 0.4 dan loop aktif
-  const audioRef = useRef(new Audio(sakura));
-  audioRef.current.volume = 0.4;
-  audioRef.current.loop = true;
+
 
   // State untuk mengontrol berbagai aspek scene
   const [currentStage, setCurrentStage] = useState(1); // Mengontrol stage/tahap tampilan
@@ -22,15 +19,7 @@ const Home = () => {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false); // Mengontrol pemutaran musik
 
   // Effect untuk mengatur pemutaran musik
-  useEffect(() => {
-    if (isPlayingMusic) {
-      audioRef.current.play();
-    }
-
-    return () => {
-      audioRef.current.pause();
-    };
-  }, [isPlayingMusic]);
+ 
 
   // Fungsi untuk menyesuaikan ukuran dan posisi pesawat berdasarkan ukuran layar
   const adjustBiplaneForScreenSize = () => {
