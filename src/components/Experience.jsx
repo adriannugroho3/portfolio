@@ -93,7 +93,7 @@ import { Portal } from "./Portal";
         scale={[12, 12, 12]}
         position={[-14, -5, -16]}
         rotation-y={ 0.2 * Math.PI}
-        ref={portalRef}
+        // ref={portalRef}
       />
       <Portal
         scale={[15, 15, 15]}
